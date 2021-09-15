@@ -1,0 +1,23 @@
+name: tuist-up
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+concurrency:
+  group: tuist-up-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit_tests:
+    name: Unit tests with Xcode ${{ matrix.xcode }}
+    runs-on: macOS-11
+    strategy:
+      matrix:
+        xcode: ['12.5.1']
+    steps:
+      - uses: actions/checkout@v1
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_${{ matrix.xcode }}.app
