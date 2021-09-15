@@ -1,5 +1,7 @@
 # tuist-up
 
+[![tuist-up](https://github.com/tuist/tuist-up/actions/workflows/tuist-up.yml/badge.svg)](https://github.com/tuist/tuist-up/actions/workflows/tuist-up.yml)
+
 `tuist up` was originally a Tuist built-in command to provision environments by reading the requirements in a manifest file `Setup.swift`.
 Although convenient for users,
 it was removed in Tuist 2.0 because it was distant from the project's core domain.
