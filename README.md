@@ -15,7 +15,8 @@ This repository contains a Swift-powered CLI that provides the same functionalit
 
 Tuist's long-term plan is to evolve our [plugins](https://github.com/tuist/tuist/discussions/3411) architecture to be able to distribute and install CLI utilities like `tuist-up` directly from Tuist like [Cargo](https://crates.io/) does with [Crates](https://crates.io/).
 
-```
+```bash
+# The CLI below is orientative and therefore is subject to change.
 tuist install tuist/tuist-up
 tuist up
 ```
