@@ -31,3 +31,14 @@ mint run tuist/tuist-up
 
 ## up.toml specification
 
+```toml
+[[commands]]
+name = "Install Pods"
+meet = "bundle exec pod install"
+is_met = "diff Podfile.lock Pods/Manifest.lock"
+
+[[products]]
+name = "Ensure the right version of Xcode is used"
+meet = "echo 'Install it through the App Store'"
+is_met = "scripts/check_xcode_version.sh"
+```
