@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  unit_tests:
-    name: Unit tests with Xcode ${{ matrix.xcode }}
+  build:
+    name: Build with Xcode ${{ matrix.xcode }}
     runs-on: macOS-11
     strategy:
       matrix:
@@ -21,3 +21,5 @@ jobs:
       - uses: actions/checkout@v1
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_${{ matrix.xcode }}.app
+      - name: Build
+        run: swift build --configuration release

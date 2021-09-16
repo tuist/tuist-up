@@ -9,7 +9,7 @@ Moreover,
 errors bubbling up from underlying commands made users believe they were Tuist bugs,
 and therefore they added up to the triaging and maintenance work.
 
-This repository contains a Swift-powered CLI that provides the same functionality to ease the adoption of Tuist 2.0 for those users that were using `Setup.swift` with Tuist 1.x. Note that this tool uses a `tuist.toml` instead of a manifest written in Swift.
+This repository contains a Swift-powered CLI that provides the same functionality to ease the adoption of Tuist 2.0 for those users that were using `Setup.swift` with Tuist 1.x. Note that this tool uses a `tuist.json` instead of a manifest written in Swift.
 
 ### Plugins 2.0
 
@@ -29,16 +29,33 @@ You can run `tuist-up` through [Mint](https://github.com/yonaskolb/Mint):
 mint run tuist/tuist-up
 ```
 
-## up.toml specification
+## up.json specification
 
-```toml
-[[commands]]
-name = "Install Pods"
-meet = "bundle exec pod install"
-is_met = "diff Podfile.lock Pods/Manifest.lock"
-
-[[commands]]
-name = "Ensure the right version of Xcode is used"
-meet = "echo 'Install it through the App Store'"
-is_met = "scripts/check_xcode_version.sh"
+```json
+[
+  {
+    "name": "Install Pods",
+    "meet": [
+      "bundle",
+      "exec",
+      "pod",
+      "install"
+    ],
+    "is_met": [
+      "diff",
+      "Podfile.lock", 
+      "Pods/Manifest.lock"
+    ]
+  },
+  {
+    "name": "Ensure the right version of Xcode is used",
+    "meet": [
+      "echo", 
+      "'Install it through the App Store'"
+    ],
+    "is_met": [
+      "scripts/check_xcode_version.sh"
+    ]
+  }
+]
 ```
