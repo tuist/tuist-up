@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "tuist-up",
+    products: [
+        .executable(name: "tuist-up", targets: ["tuist-up"]),
+    ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-tools-support-core.git", .upToNextMinor(from: "0.2.0")),
         .package(url: "https://github.com/mtynior/ColorizeSwift.git", from: "1.5.0")
